@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Button pauseButton;
     public Button continueButton;
     public Button restartButton;
+    public Button mainMenuButton;
 
     private void Start()
     {
@@ -45,14 +46,10 @@ public class GameManager : MonoBehaviour
         continueButton.gameObject.SetActive(false);
     }
 
-    public void ChooseLevel()
+    public void MainMenu()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    void GameOver()
-    {
-
-    }
 
 }
