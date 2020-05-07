@@ -16,6 +16,9 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] bool boostEnabled;
     private GameManager gameManager;
+    public GameObject endPosition;
+    public Transform building;
+    [SerializeField] float speedLimit;
 
     void Start()
     {
@@ -30,10 +33,12 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         playerRb.AddForce(movingForce, ForceMode.Force);
+
     }
 
     private void LateUpdate()
     {
+        TrailOnSpeed();
         speed = playerRb.velocity.magnitude;
         int mph = (int)(speed * 2.237f); // 3.6 for kph
         if(gameManager.isGameActive == true)
@@ -94,6 +99,30 @@ public class PlayerControl : MonoBehaviour
             scoreText.gameObject.SetActive(true);
             scoreText.text = "Your score: " + mph * 1234;
 
+        }
+
+       //if (collision.gameObject.tag == "EndOfRoute")
+       //{
+       //   cameraPosition.gameObject.GetComponent<CameraPositionChange>().enabled = true;
+       //}
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EndOfRoute")
+        {
+            Camera.main.GetComponent<CameraController>().enabled = false;
+            Camera.main.transform.position = endPosition.transform.position;
+            Camera.main.transform.LookAt(building);
+        }
+
+    }
+
+    private void TrailOnSpeed()
+    {
+        if(speed > speedLimit)
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }
