@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 movingForce;
     private Vector3 boostForce;
     private Rigidbody playerRb;
+    [SerializeField] float movingF;
+    [SerializeField] float boostF;
     [SerializeField] TextMeshProUGUI speedometerText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] Button restartButton;
@@ -27,8 +29,8 @@ public class PlayerControl : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
-        movingForce = new Vector3(0, 0, 1000);
-        boostForce = new Vector3(0, 0, 2000);
+        movingForce = new Vector3(0, 0, movingF);
+        boostForce = new Vector3(0, 0, boostF);
         boostEnabled = false;
     }
 
@@ -94,21 +96,6 @@ public class PlayerControl : MonoBehaviour
 
     #endregion
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        int mph = (int)(speed * 2.237f); // 3.6 for kph
-        if (collision.gameObject.tag == "Wall")
-        {
-            scoreText.gameObject.SetActive(true);
-            scoreText.text = "Your score: " + mph * 1234;
-
-        }
-
-       //if (collision.gameObject.tag == "EndOfRoute")
-       //{
-       //   cameraPosition.gameObject.GetComponent<CameraPositionChange>().enabled = true;
-       //}
-    }
 
     private void OnTriggerEnter(Collider other)
     {
