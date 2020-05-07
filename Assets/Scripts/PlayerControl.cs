@@ -21,8 +21,8 @@ public class PlayerControl : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerRb = GetComponent<Rigidbody>();
-        movingForce = new Vector3(0, 0, 20);
-        boostForce = new Vector3(0, 0, 50);
+        movingForce = new Vector3(0, 0, 1000);
+        boostForce = new Vector3(0, 0, 2000);
         boostEnabled = false;
     }
 
