@@ -59,6 +59,7 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         DisableSpeedBoost();
+        gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -73,6 +74,7 @@ public class PlayerControl : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 playerRb.AddForce(boostForce, ForceMode.Force);
+                gameObject.GetComponent<TrailRenderer>().enabled = true;
             }
         }
 
