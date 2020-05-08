@@ -10,9 +10,17 @@ public class CubePhysics : MonoBehaviour
     public float power = 10.0F;
 
 
+    private PlayerControl playerScript;
+    
+
+
+
 
     IEnumerator Start()
     {
+        playerScript = GameObject.Find("Player").GetComponent<PlayerControl>();
+        
+
         yield return new WaitForSeconds(5);
         GetComponent<Collider>().material = physicMaterial;
 

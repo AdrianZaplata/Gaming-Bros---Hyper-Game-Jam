@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
 
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     private Vector3 movingForce;
     private Vector3 boostForce;
     private Rigidbody playerRb;
@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        TrailOnSpeed();
+        //TrailOnSpeed();
         speed = playerRb.velocity.magnitude;
         int mph = (int)(speed * 2.237f); // 3.6 for kph
         if(gameManager.isGameActive == true)
@@ -82,6 +82,7 @@ public class PlayerControl : MonoBehaviour
         if (boostEnabled == true)
         {
             if (Input.GetMouseButton(0))
+            //if (Input.GetButton("Space"))
             {
                 playerRb.AddForce(boostForce, ForceMode.Force);
                 gameObject.GetComponent<TrailRenderer>().enabled = true;
@@ -114,12 +115,12 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private void TrailOnSpeed()
+    /*private void TrailOnSpeed()
     {
         int mph = (int)(speed * 2.237f);
         if (mph > speedLimit)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
-    }
+    }*/
 }
