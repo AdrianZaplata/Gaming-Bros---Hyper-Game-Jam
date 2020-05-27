@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameActive = true;
+        Cursor.visible = false;
     }
 
    void StartGame()

@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -156}
+  m_AnchoredPosition: {x: 0, y: -154}
   m_SizeDelta: {x: 753.9, y: 159.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362297526
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I AM SPED
+  m_text: Rolling Thunder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -276,10 +276,10 @@ MonoBehaviour:
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 0, g: 0.031424046, b: 1, a: 1}
-    topRight: {r: 0.972549, g: 1, b: 0, a: 1}
-    bottomLeft: {r: 0.96933126, g: 1, b: 0, a: 1}
-    bottomRight: {r: 0, g: 0.03529412, b: 1, a: 1}
+    topLeft: {r: 1, g: 0.7185301, b: 0, a: 1}
+    topRight: {r: 1, g: 0.72156864, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.89500326, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.8980392, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -290,14 +290,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -328,13 +328,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -157.57315, y: 0, z: -166.88458, w: 0}
   m_textInfo:
     textComponent: {fileID: 362297526}
-    characterCount: 9
+    characterCount: 15
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -433,8 +433,8 @@ MonoBehaviour:
   m_fontColorGradient:
     topLeft: {r: 1, g: 0.75268996, b: 0, a: 1}
     topRight: {r: 1, g: 0.7529412, b: 0, a: 1}
-    bottomLeft: {r: 0.7830189, g: 0, b: 0.4319875, a: 1}
-    bottomRight: {r: 0.78431374, g: 0, b: 0.43529412, a: 1}
+    bottomLeft: {r: 1, g: 0.51373154, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.5176471, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
   m_fontColorGradient:
     topLeft: {r: 1, g: 0.75268996, b: 0, a: 1}
     topRight: {r: 1, g: 0.7529412, b: 0, a: 1}
-    bottomLeft: {r: 0.7830189, g: 0, b: 0.4319875, a: 1}
-    bottomRight: {r: 0.78431374, g: 0, b: 0.43529412, a: 1}
+    bottomLeft: {r: 1, g: 0.5176471, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.5176471, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.514151, g: 0.9221855, b: 1, a: 1}
+  m_Color: {r: 0.3915094, g: 1, b: 0.5117375, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

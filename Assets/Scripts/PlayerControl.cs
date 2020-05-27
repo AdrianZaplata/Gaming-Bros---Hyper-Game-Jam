@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float boostF;
     [SerializeField] TextMeshProUGUI speedometerText;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] Button restartButton;
     [SerializeField] Button mainMenuButton;
     [SerializeField] bool boostEnabled;
@@ -108,8 +109,9 @@ public class PlayerControl : MonoBehaviour
 
             int mph = (int)(speed * 2.237f);
             scoreText.gameObject.SetActive(true);
-            restartButton.gameObject.SetActive(true);
-            mainMenuButton.gameObject.SetActive(true);
+            //restartButton.gameObject.SetActive(true);
+            //mainMenuButton.gameObject.SetActive(true);
+            speedText.gameObject.SetActive(false);
             scoreText.text = "Your score: " + mph;
         }
 

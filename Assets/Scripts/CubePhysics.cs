@@ -6,20 +6,16 @@ public class CubePhysics : MonoBehaviour
 {
     public PhysicMaterial physicMaterial;
 
-    public float radius = 5.0F;
-    public float power = 10.0F;
-
-
-    private PlayerControl playerScript;
-    
+    private float radius = 500f;
+    private float power = 1000f;
 
 
 
 
     IEnumerator Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<PlayerControl>();
-        
+
+
 
         yield return new WaitForSeconds(5);
         GetComponent<Collider>().material = physicMaterial;

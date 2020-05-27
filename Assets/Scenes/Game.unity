@@ -7274,6 +7274,7 @@ MonoBehaviour:
   boostF: 2500
   speedometerText: {fileID: 1881211989}
   scoreText: {fileID: 773693739}
+  speedText: {fileID: 1881211989}
   restartButton: {fileID: 701469553}
   mainMenuButton: {fileID: 1337397704}
   boostEnabled: 0
