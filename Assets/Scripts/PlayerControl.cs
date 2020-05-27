@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        //TrailOnSpeed();
+        TrailOnSpeed();
         speed = playerRb.velocity.magnitude;
         int mph = (int)(speed * 2.237f); // 3.6 for kph
         if(gameManager.isGameActive == true)
@@ -53,76 +53,76 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    #region Boost Management
+   #region Boost Management
+   
+   private void DisableSpeedBoost()
+   {
+       boostEnabled = false;
+   
+   }
+   
+   private void EnableSpeedBoost()
+   {
+       boostEnabled = true;
+   
+   }
+   
+   private void OnTriggerExit(Collider other)
+   {
+       DisableSpeedBoost();
+       gameObject.GetComponent<TrailRenderer>().enabled = false;
+   }
+   
+   private void OnTriggerStay(Collider other)
+   {
+       if (Input.GetMouseButtonDown(0))
+       {
+           EnableSpeedBoost();
+       }
+   
+       if (boostEnabled == true)
+       {
+           if (Input.GetMouseButton(0))
+           //if (Input.GetButton("Space"))
+           {
+               playerRb.AddForce(boostForce, ForceMode.Force);
+               gameObject.GetComponent<TrailRenderer>().enabled = true;
+           }
+       }
+   
+       //if (Input.GetTouch(0).phase == TouchPhase.Began)
+       //    {
+       //        speed += boost;
+       //    }
+   }
+   
+   #endregion
 
-    private void DisableSpeedBoost()
-    {
-        boostEnabled = false;
 
-    }
+   private void OnTriggerEnter(Collider other)
+   {
+       if (other.gameObject.tag == "EndOfRoute")
+       {
+           Camera.main.GetComponent<CameraController>().enabled = false;
+           Camera.main.transform.position = endPosition.transform.position;
+           Camera.main.transform.LookAt(building);
+   
+           int mph = (int)(speed * 2.237f);
+           scoreText.gameObject.SetActive(true);
+           //restartButton.gameObject.SetActive(true);
+           //mainMenuButton.gameObject.SetActive(true);
+           speedText.gameObject.SetActive(false);
+           scoreText.text = "Your score: " + mph;
+       }
+   
+   }
 
-    private void EnableSpeedBoost()
-    {
-        boostEnabled = true;
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        DisableSpeedBoost();
-        gameObject.GetComponent<TrailRenderer>().enabled = false;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            EnableSpeedBoost();
-        }
-
-        if (boostEnabled == true)
-        {
-            if (Input.GetMouseButton(0))
-            //if (Input.GetButton("Space"))
-            {
-                playerRb.AddForce(boostForce, ForceMode.Force);
-                gameObject.GetComponent<TrailRenderer>().enabled = true;
-            }
-        }
-
-        //if (Input.GetTouch(0).phase == TouchPhase.Began)
-        //    {
-        //        speed += boost;
-        //    }
-    }
-
-    #endregion
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "EndOfRoute")
-        {
-            Camera.main.GetComponent<CameraController>().enabled = false;
-            Camera.main.transform.position = endPosition.transform.position;
-            Camera.main.transform.LookAt(building);
-
-            int mph = (int)(speed * 2.237f);
-            scoreText.gameObject.SetActive(true);
-            //restartButton.gameObject.SetActive(true);
-            //mainMenuButton.gameObject.SetActive(true);
-            speedText.gameObject.SetActive(false);
-            scoreText.text = "Your score: " + mph;
-        }
-
-    }
-
-    /*private void TrailOnSpeed()
+    private void TrailOnSpeed()
     {
         int mph = (int)(speed * 2.237f);
         if (mph > speedLimit)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
-    }*/
+    }
 }
