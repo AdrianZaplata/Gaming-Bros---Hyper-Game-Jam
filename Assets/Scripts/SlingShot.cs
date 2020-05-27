@@ -13,6 +13,8 @@ public class SlingShot : MonoBehaviour
     public float maxDragDistance;
     Rigidbody slingRb;
     TrailRenderer trail;
+    public GameObject endPosition;
+    public Transform building;
 
     float speedLimit = 1.0f;
     float speed;
@@ -36,6 +38,18 @@ public class SlingShot : MonoBehaviour
         TrailOnSpeed();
         speed = playerRb.velocity.magnitude;
         int mph = (int)(speed * 2.237f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EndOfRoute")
+        {
+            Camera.main.GetComponent<CameraController>().enabled = false;
+            Camera.main.transform.position = endPosition.transform.position;
+            Camera.main.transform.LookAt(building);
+
+        }
+
     }
 
     private void DragBall()
