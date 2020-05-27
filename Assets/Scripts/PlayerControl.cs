@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        //TrailOnSpeed();
+        TrailOnSpeed();
         speed = playerRb.velocity.magnitude;
         int mph = (int)(speed * 2.237f); // 3.6 for kph
         if(gameManager.isGameActive == true)
@@ -117,12 +117,12 @@ public class PlayerControl : MonoBehaviour
    
    }
 
-    /*private void TrailOnSpeed()
+    private void TrailOnSpeed()
     {
         int mph = (int)(speed * 2.237f);
         if (mph > speedLimit)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
-    }*/
+    }
 }

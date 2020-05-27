@@ -11,6 +11,9 @@ public class SlingShot : MonoBehaviour
     public float maxDragDistance;
     Rigidbody slingRb;
 
+    float speedLimit = 1.0f;
+    float speed;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -26,6 +29,9 @@ public class SlingShot : MonoBehaviour
             DragBall();
         }
 
+        TrailOnSpeed();
+        speed = playerRb.velocity.magnitude;
+        int mph = (int)(speed * 2.237f);
     }
 
     private void DragBall()
@@ -72,5 +78,14 @@ public class SlingShot : MonoBehaviour
     private void DisableSling()
     {
         sling.gameObject.SetActive(false);
+    }
+
+    private void TrailOnSpeed()
+    {
+        int mph = (int)(speed * 2.237f);
+        if (mph > speedLimit)
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }
