@@ -7,6 +7,8 @@ public class SlingShot : MonoBehaviour
     bool isPressed;
     Rigidbody playerRb;
     public GameObject sling;
+    public GameObject sling2;
+    public GameObject anchor;
     float playerPosition;
     public float maxDragDistance;
     Rigidbody slingRb;
@@ -44,12 +46,12 @@ public class SlingShot : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         mousePosition.y = playerRb.position.y;
 
-        float dragDistance = Vector3.Distance(mousePosition, sling.transform.position);
+        float dragDistance = Vector3.Distance(mousePosition, anchor.transform.position);
 
         if(dragDistance > maxDragDistance)
         {
-            Vector3 direction = (mousePosition - sling.transform.position).normalized;
-            playerRb.position = sling.transform.position + direction * maxDragDistance;
+            Vector3 direction = (mousePosition - anchor.transform.position).normalized;
+            playerRb.position = anchor.transform.position + direction * maxDragDistance;
         }
         else
         {
@@ -75,11 +77,13 @@ public class SlingShot : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         sling.gameObject.SetActive(false);
+        sling2.gameObject.SetActive(false);
     }
 
     private void DisableSling()
     {
         sling.gameObject.SetActive(false);
+        sling2.gameObject.SetActive(false);
     }
 
     private void TrailOnSpeed()
