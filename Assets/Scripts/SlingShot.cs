@@ -10,6 +10,7 @@ public class SlingShot : MonoBehaviour
     float playerPosition;
     public float maxDragDistance;
     Rigidbody slingRb;
+    TrailRenderer trail;
 
     float speedLimit = 1.0f;
     float speed;
@@ -19,6 +20,7 @@ public class SlingShot : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerPosition = transform.position.z;
         slingRb = sling.GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
     }
 
 
@@ -85,7 +87,7 @@ public class SlingShot : MonoBehaviour
         int mph = (int)(speed * 2.237f);
         if (mph > speedLimit)
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            trail.enabled = true;
         }
     }
 }
