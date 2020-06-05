@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SlingShot : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SlingShot : MonoBehaviour
     TrailRenderer trail;
     public GameObject endPosition;
     public Transform building;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     float speedLimit = 1.0f;
     float speed;
@@ -48,8 +50,19 @@ public class SlingShot : MonoBehaviour
             Camera.main.transform.position = endPosition.transform.position;
             Camera.main.transform.LookAt(building);
 
+            StartCoroutine(ScoreAfterTime(5.0f));
+
         }
 
+    }
+
+    IEnumerator ScoreAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        int mph = (int)(speed * 2.237f);
+        scoreText.gameObject.SetActive(true);
+        scoreText.text = "Your Score " + mph;
     }
 
     private void DragBall()
